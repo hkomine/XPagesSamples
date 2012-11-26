@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="ロータスショッピング - 銀行振り込みでのお支払いについて">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+		<xp:script src="/shopping cart.jss" clientSide="false"></xp:script>
+		<xp:script src="/payment info.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label value="銀行振込での支払いについて" id="label1" styleClass="contentTitleText">
+				</xp:label>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				<xp:table style="width:98%">
+					<xp:tr>
+						<xp:td style="width:10%"></xp:td>
+						<xp:td>
+							<xp:panel id="paneBankTransferInfoTitle" style="padding-top:10.0px;padding-bottom:10.0px">
+								<xp:label id="label3" styleClass="titleLarge" value="銀行振込によるお支払いが選択されました。">
+								</xp:label>
+							</xp:panel>
+							<xp:panel id="paneBankTransferInfo">
+								<xp:table style="width:100%">
+									<xp:tr>
+										<xp:td>
+											お支払金額の合計は
+											<xp:text escape="true" id="computedField1">
+											</xp:text>
+											です。
+											<xp:br id="br1"></xp:br>
+											この金額を以下のロータスショッピングの口座に１週間以内にお振込みください。
+											<xp:br id="br2"></xp:br>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="text-align:center">
+											<xp:panel
+												style="padding-top:25.0px;padding-bottom:25.0px;padding-left:10.0%;padding-right:10.0%">
+												<xp:table style="width:80%">
+													<xp:tr>
+														<xp:td
+															style="width:75px;background-color:rgb(192,192,192);text-align:center">
+															銀行名
+														</xp:td>
+														<xp:td style="text-align:left">
+															アイ・ビー・エム銀行
+															箱崎支店
+														</xp:td>
+													</xp:tr>
+													<xp:tr>
+														<xp:td
+															style="width:75px;background-color:rgb(192,192,192);text-align:center">
+															口座
+														</xp:td>
+														<xp:td style="text-align:left">
+															普通預金口座
+															１２３４５６７
+														</xp:td>
+													</xp:tr>
+													<xp:tr>
+
+														<xp:td
+															style="width:75px;background-color:rgb(192,192,192);text-align:center">
+															名義
+														</xp:td>
+														<xp:td style="text-align:left">
+															ロータスショッピング株式会社
+														</xp:td>
+													</xp:tr>
+												</xp:table>
+											</xp:panel>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td>
+											最寄りの金融機関、コンビニエンスストア、アイビーエム銀行指定ショップでお振り込みができます。
+											<xp:br></xp:br>
+											振込時に発行される受領書が、ロータスショッピング株式会社でのご購入の領収書となります。
+											<xp:br></xp:br>
+											ロータスショッピング株式会社ではお客様の振込を確認した後で、商品を発送します。
+											<xp:br></xp:br>
+											以下のリンクをクリックすると、
+											アイビーエム銀行指定ショップで使用できる振込依頼書が印刷できます。
+											<xp:br></xp:br>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="text-align:center;padding-top:30.0px">
+											<xp:link escape="true" text="振込依頼書を表示する" id="link1"
+												styleClass="textLarge">
+												<xp:eventHandler event="onclick" submit="false">
+													<xp:this.script><![CDATA[var newWin = window.open(
+	"bankTransferForm.xsp?amount=#{javascript:getTotalAmount().toFixed(0)}",
+	"BankTransferForm",
+	"width=800, height=700"
+);
+newWin.focus();]]></xp:this.script>
+												</xp:eventHandler>
+											</xp:link>
+										</xp:td>
+									</xp:tr>
+								</xp:table>
+							</xp:panel>
+							<xp:panel id="panelCheckoutButton" style="text-align:center;padding-top:30.0px">
+								<xp:button id="button1" style="height:30px;width:100px"
+									value="次へ">
+
+
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete">
+										<xp:this.action>
+
+											<xp:actionGroup>
+												<xp:executeScript script="#{javascript:setBankTransfer();}">
+												</xp:executeScript>
+												<xp:openPage name="/checkoutVerification.xsp">
+												</xp:openPage>
+
+											</xp:actionGroup>
+										</xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+							</xp:panel>
+						</xp:td>
+						<xp:td style="width:10%"></xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>

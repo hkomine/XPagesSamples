@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="ロータスショッピング - 商品カタログ">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+	</xp:this.resources>
+
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label value="商品カタログ" id="label1"
+					styleClass="contentTitleText">
+				</xp:label>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+			<xp:table style="width:100%">
+				<xp:tr>
+					<xp:td style="width:10%"></xp:td>
+					<xp:td><xp:panel style="width:100%">
+								<xp:viewPanel rows="30" id="viewPanel1" viewStyle="width:100%" pageName="/productDetail.xsp">
+									<xp:this.facets>
+										<xp:pager partialRefresh="true" layout="Previous Group Next" xp:key="headerPager" id="pager1">
+										</xp:pager>
+									</xp:this.facets>
+									<xp:this.data>
+										<xp:dominoView var="productsView" viewName="ProductsByCategoryView">
+										</xp:dominoView>
+									</xp:this.data>
+									<xp:viewColumn columnName="ProductCategory" id="viewColumn1">
+										<xp:viewColumnHeader value="カテゴリ" id="viewColumnHeader1">
+										</xp:viewColumnHeader>
+									</xp:viewColumn>
+									<xp:viewColumn columnName="ProductID" id="viewColumn2">
+										<xp:viewColumnHeader value="商品番号" id="viewColumnHeader2">
+										</xp:viewColumnHeader>
+									</xp:viewColumn>
+									<xp:viewColumn columnName="ProductName" id="viewColumn3" displayAs="link" openDocAsReadonly="true">
+										<xp:viewColumnHeader value="商品名" id="viewColumnHeader3">
+										</xp:viewColumnHeader>
+									</xp:viewColumn>
+									<xp:viewColumn columnName="ProductPrice" id="viewColumn4" style="text-align:right">
+										<xp:this.converter>
+											<xp:convertNumber pattern="#,##0">
+											</xp:convertNumber>
+										</xp:this.converter>
+										<xp:viewColumnHeader value="価格" id="viewColumnHeader4" style="text-align:center">
+										</xp:viewColumnHeader>
+									</xp:viewColumn>
+								</xp:viewPanel>
+							</xp:panel></xp:td>
+					<xp:td style="width:10%"></xp:td>
+				</xp:tr>
+			</xp:table>
+			
+			</xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom" pageTitle="ロータスショッピング - "
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xsp/core xsdxp://localhost/xsp~core.xsd">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label id="label1" styleClass="contentTitleText"
+					value="オーダー済のご注文の検索">
+				</xp:label>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				
+				<xp:panel><xp:table style="width:100%">
+					<xp:tr>
+						<xp:td style="width:10%"></xp:td>
+						<xp:td>
+							<xp:label id="label2">
+								<xp:this.value><![CDATA[検索するご注文番号を入力してください。
+						]]></xp:this.value>
+							</xp:label>
+							
+							<xp:br></xp:br>
+							<xp:panel
+								style="padding-top:10.0px;padding-bottom:10.0px">
+								<xp:label id="label3" value="検索するご注文番号："
+									styleClass="textLarge">
+								</xp:label>
+								<xp:inputText id="inputOrderId"
+									style="width:200px" value="#{sessionScope.searchOrderId}"
+									styleClass="textLarge">
+								</xp:inputText>
+							</xp:panel>
+						</xp:td>
+						<xp:td style="width:10%"></xp:td>
+					</xp:tr>
+				</xp:table></xp:panel>
+				<xp:panel style="padding-top:30.0px;text-align:center">
+					<xp:button id="button1" style="height:30px"
+						value="ご注文を検索する">
+					<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+						<xp:this.action>
+							<xp:openPage name="/ordersView.xsp"></xp:openPage>
+						</xp:this.action></xp:eventHandler></xp:button></xp:panel></xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>

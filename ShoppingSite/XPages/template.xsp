@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom" pageTitle="ロータスショッピング - ">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle"><xp:label id="label1" styleClass="contentTitleText" value="ページタイトル">
+				</xp:label></xp:panel>
+			<xp:panel id="content" styleClass="content"></xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>

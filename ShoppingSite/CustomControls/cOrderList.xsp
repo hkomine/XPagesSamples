@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:panel style="width:100%">
+		<xp:panel>
+			<xp:table style="width:100%">
+				<xp:tr>
+					<xp:td style="width:100px;background-color:rgb(192,192,192)">
+						<xp:label value="商品番号" id="label2" styleClass="titleNormal">
+						</xp:label>
+					</xp:td>
+					<xp:td style="background-color:rgb(192,192,192)">
+						<xp:label value="商品名" id="label3" styleClass="titleNormal">
+						</xp:label>
+					</xp:td>
+					<xp:td
+						style="width:100px;text-align:right;background-color:rgb(192,192,192)">
+						<xp:label value="価格" id="label4" styleClass="titleNormal">
+						</xp:label>
+					</xp:td>
+					<xp:td
+						style="width:100px;text-align:right;background-color:rgb(192,192,192)">
+						<xp:label value="購入点数" id="label5" styleClass="titleNormal">
+						</xp:label>
+					</xp:td>
+					<xp:td
+						style="width:100px;text-align:right;background-color:rgb(192,192,192)">
+						<xp:label value="小計" id="label1" styleClass="titleNormal">
+						</xp:label>
+					</xp:td>
+					<xp:td style="width:50px"></xp:td>
+				</xp:tr>
+			</xp:table>
+		</xp:panel>
+		<xp:repeat id="repeatAllOrder" rows="30"
+			value="#{javascript:return getAllOrder();}" var="orderEntry">
+			<xp:table style="width:100.0%">
+				<xp:tr>
+					<xp:td style="width:100px">
+						<xp:text escape="true" id="computedField1"
+							value="#{javascript:return orderEntry.productId;}">
+						</xp:text>
+					</xp:td>
+					<xp:td>
+						<xp:text escape="true" id="computedField2"
+							value="#{javascript:return orderEntry.productName;}">
+						</xp:text>
+					</xp:td>
+					<xp:td style="width:100px;text-align:right">
+						<xp:text escape="true" id="computedField3"
+							value="#{javascript:return orderEntry.productPrice;}">
+							<xp:this.converter>
+								<xp:convertNumber pattern="#,##0">
+								</xp:convertNumber>
+							</xp:this.converter>
+						</xp:text>
+					</xp:td>
+					<xp:td style="width:100px;text-align:right">
+						<xp:text escape="true" id="computedField4"
+							value="#{javascript:return orderEntry.orderCount;}">
+							<xp:this.converter>
+								<xp:convertNumber type="number" integerOnly="true">
+								</xp:convertNumber>
+							</xp:this.converter>
+						</xp:text>
+
+					</xp:td>
+
+					<xp:td style="width:100px;text-align:right">
+						<xp:text escape="true" id="computedField5"
+							value="#{javascript:return orderEntry.productPrice * orderEntry.orderCount;}">
+							<xp:this.converter>
+								<xp:convertNumber pattern="#,##0"></xp:convertNumber>
+							</xp:this.converter>
+						</xp:text>
+					</xp:td>
+					<xp:td style="width:50px">
+						<xp:button id="button1" value="変更"
+							rendered="${javascript:compositeData.bShowChangeButton}">
+							<xp:eventHandler event="onclick" submit="true"
+								refreshMode="complete" id="eventHandler1">
+								<xp:this.action>
+									<xp:openPage name="/productDetail.xsp" target="openDocument"
+										documentId="#{javascript:return orderEntry.noteId;}">
+									</xp:openPage>
+								</xp:this.action>
+							</xp:eventHandler>
+						</xp:button>
+					</xp:td>
+				</xp:tr>
+			</xp:table>
+		</xp:repeat>
+		<xp:panel rendered="#{javascript:compositeData.bShowTotal}">
+			<xp:table style="width:100%">
+				<xp:tr>
+					<xp:td style="width:100px"></xp:td>
+					<xp:td>
+						<xp:label id="label6" styleClass="titleNormal" value="合計">
+						</xp:label>
+					</xp:td>
+					<xp:td style="width:100px;text-align:right">
+						<xp:text escape="true" id="computedField6"
+							value="#{javascript:return getTotalAmount();}">
+							<xp:this.converter>
+								<xp:convertNumber pattern="#,##0"></xp:convertNumber>
+							</xp:this.converter>
+						</xp:text>
+					</xp:td>
+					<xp:td style="width:50px"></xp:td>
+				</xp:tr>
+			</xp:table>
+		</xp:panel>
+	</xp:panel>
+</xp:view>

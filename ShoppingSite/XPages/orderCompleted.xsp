@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="ロータスショッピング - ご購入の完了">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label id="label1" styleClass="contentTitleText"
+					value="ご購入の完了">
+				</xp:label>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				<xp:panel style="text-align:center">
+					<xp:label id="label2" value="ご注文ありがとうございました。"
+						styleClass="textLarge">
+					</xp:label>
+					<xp:br></xp:br>
+					<xp:label value="ご注文番号は " id="label3"
+						styleClass="textLarge">
+					</xp:label>
+					<xp:label
+						value="#{javascript:return sessionScope.orderId;}" id="label4"
+						styleClass="remarkXLarge">
+					</xp:label>
+					<xp:label value=" です。" id="label5"
+						styleClass="textLarge">
+					</xp:label>
+				</xp:panel>
+			</xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>

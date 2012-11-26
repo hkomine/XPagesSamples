@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="3.0" replicaid="492579C6002A0AF2" version="8.5" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2ae" sequence="23" unid="C191006D01F323C549257A0700023BE0">
+<created><datetime>20120523T092424,00+09</datetime></created>
+<modified><datetime>20121126T172639,64+09</datetime></modified>
+<revised><datetime>20121126T172639,63+09</datetime></revised>
+<lastaccessed><datetime>20121126T172639,64+09</datetime></lastaccessed>
+<addedtofile><datetime>20120523T092424,01+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Admin/O=Lotus</name><name>CN=admin/O=LotusLab</name></updatedby>
+<wassignedby><name>CN=admin/O=LotusLab</name></wassignedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+<item name="$TITLE"><text>com/company/shopping/CreditCardValidator.java</text></item>
+
+
+
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>com/company/shopping/CreditCardValidator.java</text></item>
+
+</note>

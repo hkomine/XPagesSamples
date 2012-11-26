@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="filter" maintenanceversion="3.0" replicaid="492579C6002A0AF2" version="8.5" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2b6" sequence="10" unid="E215308BB5678E3849257A0B0009DB91">
+<created><datetime>20120527T104740,33+09</datetime></created>
+<modified><datetime>20121126T172639,68+09</datetime></modified>
+<revised><datetime>20121126T172639,67+09</datetime></revised>
+<lastaccessed><datetime>20121126T172639,68+09</datetime></lastaccessed>
+<addedtofile><datetime>20120527T104740,36+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Admin/O=Lotus</name><name>CN=admin/O=LotusLab</name></updatedby>
+<wassignedby><name>CN=admin/O=LotusLab</name></wassignedby>
+<item name="$TITLE" sign="true"><text>creditcard validator</text></item>
+<item name="$Flags"><text>.5834Q</text></item>
+<item name="$PublicAccess" sign="true"><text>1</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+</note>

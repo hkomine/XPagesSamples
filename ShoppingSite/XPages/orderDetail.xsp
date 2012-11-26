@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="ロータスショッピング - " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xsp/core xsdxp://localhost/xsp~core.xsd">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:this.data>
+		<xp:dominoDocument var="orderSummaryDocument"
+			formName="OrderSummary" action="openDocument">
+		</xp:dominoDocument>
+	</xp:this.data>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label id="label1" styleClass="contentTitleText" value="オーダー済のご注文の詳細">
+				</xp:label>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				<xp:table style="width:98%">
+					<xp:tr>
+						<xp:td style="width:10%"></xp:td>
+						<xp:td>
+							<xp:panel id="panelCustomerInfoTitle" style="padding-top:10.0px">
+								<xp:label id="label2" value="お客様情報" styleClass="titleLarge">
+								</xp:label>
+							</xp:panel>
+							<xp:panel id="panelCustomerInfo" style="padding-left:10.0%;padding-right:10.0%">
+								<xp:table style="width:80%">
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label id="label12" styleClass="titleNormal"
+												value="ご注文情報">
+											</xp:label>
+										</xp:td>
+										<xp:td style="background-color:rgb(192,192,192)"></xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="ご注文番号" id="label13" for="customerLastName1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{orderSummaryDocument.OrderID}"
+												id="inputText1" style="width:200px" required="true">
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label id="label4" value="お名前" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td style="background-color:rgb(192,192,192)">
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150px;background-color:rgb(192,192,192)">
+											<xp:label value="姓" id="customerLastName_Label1"
+												for="customerLastName1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{orderSummaryDocument.CustomerLastName}"
+												id="customerLastName1" style="width:200px" required="true">
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="名" id="customerFirstName_Label1"
+												for="customerFirstName1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{orderSummaryDocument.CustomerFirstName}"
+												id="customerFirstName1" style="width:200px" required="true">
+
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="セイ" id="customerLastNameYomigana_Label1"
+												for="customerLastNameYomigana1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText
+												value="#{orderSummaryDocument.CustomerFirstNameYomigana}"
+												id="customerLastNameYomigana1" style="width:200px" required="true">
+
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="メイ" id="customerFirstNameYomigana_Label1"
+												for="customerFirstNameYomigana1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText
+												value="#{orderSummaryDocument.CustomerLastNameYomigana}" id="customerFirstNameYomigana1"
+												style="width:200px" required="true">
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="ご住所" id="label5" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td style="background-color:rgb(192,192,192)">
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="郵便番号" id="customerZip_Label1" for="customerZip1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{orderSummaryDocument.CustomerZip}"
+												id="customerZip1" style="width:100px" required="true">
+
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="住所" id="customerAddress_Label1"
+												for="customerAddress1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{orderSummaryDocument.CustomerAddress}"
+												id="customerAddress1" style="width:100%" required="true">
+
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="電話番号" id="customerPhoneNumber_Label1"
+												for="customerPhoneNumber1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{orderSummaryDocument.CustomerPhoneNumber}"
+												id="customerPhoneNumber1" style="width:200px" required="true">
+
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="メール" id="customerEmail_Label1" for="customerEmail1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{orderSummaryDocument.CustomerEmail}"
+												id="customerEmail1" style="width:100%" required="true">
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="お支払い情報" id="label6" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td style="background-color:rgb(192,192,192)">
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="お支払方法" id="label7" for="customerEmail1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:text escape="true" id="computedField5">
+												<xp:this.value><![CDATA[#{javascript:
+var paymentType = orderSummaryDocument.getItemValueString("PaymentType");
+if ("CreditCard" == paymentType) {
+	return "クレジットカード";
+} else if ("BankTransfer" == paymentType) {
+	return "銀行振込";
+} else {
+	return "代金引換";
+}
+}]]></xp:this.value>
+											</xp:text>
+										</xp:td>
+									</xp:tr>
+								</xp:table>
+							</xp:panel>
+							<xp:panel id="panelOrderInfoTitle" style="padding-top:10.0px">
+								<xp:label value="ご注文内容" id="label3" styleClass="titleLarge">
+								</xp:label>
+							</xp:panel>
+							<xp:panel id="panelOrderInfo">
+								<xp:table style="width:100%">
+									<xp:tr>
+										<xp:td style="width:100px;background-color:rgb(192,192,192)">
+											<xp:label value="商品番号" id="label8" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="商品名" id="label9" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td
+											style="width:100px;text-align:right;background-color:rgb(192,192,192)">
+											<xp:label value="価格" id="label10" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td
+											style="width:100px;text-align:right;background-color:rgb(192,192,192)">
+											<xp:label value="購入点数" id="label11" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+									</xp:tr>
+								</xp:table>
+								<xp:repeat id="repeat1" rows="30" var="response">
+									<xp:this.value><![CDATA[#{javascript:var thisDoc:NotesDocument = orderSummaryDocument.getDocument();
+var responses:NotesDocumentCollection = thisDoc.getResponses();
+return responses;}]]></xp:this.value>
+									<xp:panel>
+										<xp:table style="width:100%">
+											<xp:tr>
+												<xp:td>
+													<xp:table style="width:100%">
+														<xp:tr>
+															<xp:td style="width:100px">
+																<xp:text escape="true" id="computedField1">
+																	<xp:this.value><![CDATA[#{javascript:return response.getItemValueString("ProductId");}]]></xp:this.value>
+																</xp:text>
+															</xp:td>
+															<xp:td>
+																<xp:text escape="true" id="computedField2">
+																	<xp:this.value><![CDATA[#{javascript:return response.getItemValueString("ProductName");}]]></xp:this.value>
+																</xp:text>
+															</xp:td>
+															<xp:td style="width:100px;text-align:right">
+																<xp:text escape="true" id="computedField3">
+																	<xp:this.value><![CDATA[#{javascript:return response.getItemValue("ProductPrice")[0];
+}]]></xp:this.value>
+																	<xp:this.converter>
+																		<xp:convertNumber pattern="#,##0"></xp:convertNumber>
+																	</xp:this.converter>
+																</xp:text>
+															</xp:td>
+															<xp:td style="width:100px;text-align:right">
+																<xp:text escape="true" id="computedField4">
+																	<xp:this.value><![CDATA[#{javascript:return response.getItemValue("OrderCount")[0];
+}]]></xp:this.value>
+																	<xp:this.converter>
+																		<xp:convertNumber type="number"
+																			integerOnly="true">
+																		</xp:convertNumber>
+																	</xp:this.converter>
+																</xp:text>
+															</xp:td>
+														</xp:tr>
+													</xp:table>
+												</xp:td>
+												<xp:td></xp:td>
+												<xp:td></xp:td>
+												<xp:td></xp:td>
+											</xp:tr>
+										</xp:table>
+									</xp:panel>
+								</xp:repeat>
+							</xp:panel>
+							<xp:panel id="panelCheckoutButton" style="text-align:center">
+								<xp:button id="button1"
+									style="height:30px;width:200px;margin-top:30.0px" value="このご注文を削除する">
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete">
+										<xp:this.action>
+											<xp:actionGroup>
+												<xp:confirm message="このご注文文書とその関連文書を削除します。よろしいですか?">
+												</xp:confirm>
+
+
+												<xp:executeScript>
+													<xp:this.script><![CDATA[#{javascript:
+var doc:NotesDocument = orderSummaryDocument.getDocument();
+
+// 子文書を先に削除
+var children:NotesDocumentCollection = doc.getResponses();
+var child:NotesDocument = children.getFirstDocument();
+while (null == child) {
+	child.remove(true);
+	child:NotesDocument = children.getNextDocument(child);
+}
+
+// 親文書も削除
+doc.remove(true);}]]></xp:this.script>
+												</xp:executeScript>
+												<xp:openPage name="/ordersView.xsp">
+												</xp:openPage>
+											</xp:actionGroup>
+										</xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+							</xp:panel>
+						</xp:td>
+						<xp:td style="width:10%"></xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:panel>
+		</xp:panel>
+		<xc:cFooter></xc:cFooter>
+	</xp:panel>
+</xp:view>

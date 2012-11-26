@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="ロータスショッピング - お客様情報の入力">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+		<xp:script src="/shopping cart.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label id="label1" styleClass="contentTitleText" value="お客様情報の入力">
+				</xp:label>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				<xp:table style="width:98%">
+					<xp:tr>
+						<xp:td style="width:10%"></xp:td>
+						<xp:td>
+							<xp:panel id="panelCustomerInfoTitle" style="padding-top:10.0px">
+								<xp:label id="label2" value="お客様情報" styleClass="titleLarge">
+								</xp:label>
+							</xp:panel>
+							<xp:panel id="panelCustomerInfo" style="padding-left:10.0%;padding-right:10.0%">
+								<xp:table style="width:80%">
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label id="label4" value="お名前" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td style="background-color:rgb(192,192,192)">
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150px;background-color:rgb(192,192,192)">
+											<xp:label value="姓" id="customerLastName_Label1"
+												for="customerLastName1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{sessionScope.customerLastName}"
+												id="customerLastName1" style="width:200px" required="true">
+												<xp:this.validators>
+													<xp:validateRequired message="お名前（姓）は必須入力項目です。">
+													</xp:validateRequired>
+												</xp:this.validators>
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="名" id="customerFirstName_Label1"
+												for="customerFirstName1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{sessionScope.customerFirstName}"
+												id="customerFirstName1" style="width:200px" required="true">
+												<xp:this.validators>
+													<xp:validateRequired message="お名前（名）は必須入力項目です。">
+													</xp:validateRequired>
+												</xp:this.validators>
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="セイ" id="customerLastNameYomigana_Label1"
+												for="customerLastNameYomigana1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{sessionScope.customerLastNameYomigana}"
+												id="customerLastNameYomigana1" style="width:200px" required="true">
+												<xp:this.validators>
+													<xp:validateRequired message="お名前（セイ）は必須入力項目です。">
+													</xp:validateRequired>
+												</xp:this.validators>
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="メイ" id="customerFirstNameYomigana_Label1"
+												for="customerFirstNameYomigana1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{sessionScope.customerFirstNameYomigana}"
+												id="customerFirstNameYomigana1" style="width:200px"
+												required="true">
+												<xp:this.validators>
+													<xp:validateRequired message="お名前（メイ）は必須入力項目です。">
+													</xp:validateRequired>
+												</xp:this.validators>
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="ご住所" id="label5" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td style="background-color:rgb(192,192,192)">
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="郵便番号" id="customerZip_Label1" for="customerZip1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{sessionScope.customerZip}"
+												id="customerZip1" style="width:100px" required="true">
+												<xp:this.validators>
+													<xp:validateRequired message="郵便番号は必須入力項目です。">
+													</xp:validateRequired>
+													<xp:validateLength
+														minimum="8" maximum="8"
+														message="郵便番号は XXX-XXXX の形式で入力してください。">
+
+													</xp:validateLength>
+												</xp:this.validators>
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="住所" id="customerAddress_Label1"
+												for="customerAddress1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{sessionScope.customerAddress}"
+												id="customerAddress1" style="width:100%" required="true">
+												<xp:this.validators>
+													<xp:validateRequired message="住所は必須入力項目です。">
+													</xp:validateRequired>
+												</xp:this.validators>
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="電話番号" id="customerPhoneNumber_Label1"
+												for="customerPhoneNumber1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{sessionScope.customerPhoneNumber}"
+												id="customerPhoneNumber1" style="width:200px" required="true">
+												<xp:this.validators>
+													<xp:validateRequired message="電話番号は必須入力項目です。">
+													</xp:validateRequired>
+												</xp:this.validators>
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label value="メール" id="customerEmail_Label1" for="customerEmail1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{sessionScope.customerEmail}"
+												id="customerEmail1" style="width:100%" required="true">
+												<xp:this.validators>
+													<xp:validateRequired message="メールは必須入力項目です。">
+													</xp:validateRequired>
+												</xp:this.validators>
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+								</xp:table>
+							</xp:panel>
+							<xp:panel id="panelHiddenArea"></xp:panel>
+							<xp:panel id="panelPaymentOption" style="padding-top:10.0px">
+								<xp:label id="label10" styleClass="titleLarge" value="お支払い方法">
+								</xp:label>
+								<xp:table style="width:98%">
+									<xp:tr>
+										<xp:td style="width:150px">
+										</xp:td>
+										<xp:td>
+											<xp:radioGroup id="radioGroupPayment" layout="pageDirection"
+												defaultValue="CreditCard" value="#{sessionScope.paymentType}">
+												<xp:selectItem itemLabel="クレジットカード" itemValue="CreditCard">
+												</xp:selectItem>
+												<xp:selectItem itemLabel="銀行振込" itemValue="BankTransfer">
+												</xp:selectItem>
+												<xp:selectItem itemLabel="代金引換" itemValue="OnDelivery">
+												</xp:selectItem>
+											</xp:radioGroup>
+										</xp:td>
+									</xp:tr>
+								</xp:table>
+							</xp:panel>
+							<xp:panel id="panelOrderInfoTitle" style="padding-top:10.0px">
+								<xp:label value="ご注文内容" id="label3" styleClass="titleLarge">
+								</xp:label>
+							</xp:panel>
+							<xp:panel id="panelOrderInfo">
+
+								<xc:cOrderList bShowTotal="true"
+									bShowChangeButton="false">
+								</xc:cOrderList>
+							</xp:panel>
+							<xp:panel id="panelCheckoutButton" style="text-align:center">
+								<xp:button id="button1"
+									style="height:30px;width:100px;margin-top:30.0px" value="次へ">
+									<xp:this.rendered><![CDATA[#{javascript:return (getProductCount() > 0);}]]></xp:this.rendered>
+
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete">
+										<xp:this.action>
+											<xp:openPage>
+												<xp:this.name><![CDATA[#{javascript:var radioGroupPayment:com.ibm.xsp.component.xp.XspSelectOneRadio = getComponent("radioGroupPayment");
+var paymentType = radioGroupPayment.getValue();
+if ("CreditCard" == paymentType) {
+	return "paymentCreditCard.xsp";
+} else if ("BankTransfer" == paymentType) {
+	return "/paymentBankTransfer.xsp";
+} else {
+	return "paymentOnDelivery.xsp";
+}}]]></xp:this.name>
+											</xp:openPage>
+										</xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+							</xp:panel>
+						</xp:td>
+						<xp:td style="width:10%"></xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>

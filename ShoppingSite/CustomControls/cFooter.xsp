@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	<xp:panel>
+		
+	<xp:div align="center">
+		<xp:table>
+			<xp:tr>
+				<xp:td>
+					<xp:link escape="true" text="Copyright"
+						id="link1">
+						
+					<xp:eventHandler event="onclick" submit="false">
+						<xp:this.script><![CDATA[alert("Not implemented.");]]></xp:this.script>
+					</xp:eventHandler></xp:link>
+				</xp:td>
+				<xp:td style="width:10px"></xp:td>
+				<xp:td>
+					<xp:link escape="true" text="Term of use"
+						id="link2">
+						
+					<xp:eventHandler event="onclick" submit="false">
+						<xp:this.script><![CDATA[alert("Not implemented.");]]></xp:this.script>
+					</xp:eventHandler></xp:link>
+				</xp:td>
+				<xp:td style="width:10px"></xp:td>
+				<xp:td>
+					<xp:link escape="true" text="Privacy policy"
+						id="link3">
+						
+					<xp:eventHandler event="onclick" submit="false">
+						<xp:this.script><![CDATA[alert("Not implemented.");]]></xp:this.script>
+					</xp:eventHandler></xp:link>
+				</xp:td>
+				<xp:td style="width:10px"></xp:td>
+				<xp:td>
+					<xp:link escape="true" text="Contact us"
+						id="link4">
+						
+					<xp:eventHandler event="onclick" submit="false">
+						<xp:this.script><![CDATA[alert("Not implemented.");]]></xp:this.script>
+					</xp:eventHandler></xp:link>
+				</xp:td>
+				<xp:td style="width:10px"></xp:td>
+				<xp:td>
+					<xp:link escape="true" text="Administration"
+						id="link5">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete" id="eventHandler5">
+							<xp:this.action>
+								<xp:openPage
+									name="/searchMyOrder.xsp">
+								</xp:openPage>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:link>
+				</xp:td>
+			</xp:tr>
+		</xp:table></xp:div></xp:panel></xp:view>

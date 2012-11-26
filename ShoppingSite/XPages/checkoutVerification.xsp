@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="ロータスショッピング - ご購入の確認">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+		<xp:script src="/shopping cart.jss" clientSide="false"></xp:script>
+		<xp:script src="/payment info.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:this.data>
+		<xp:dominoDocument var="orderDocument" formName="OrderSummary">
+		</xp:dominoDocument>
+	</xp:this.data>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label id="label1" styleClass="contentTitleText" value="ご購入の確認">
+				</xp:label>
+			</xp:panel>
+			<xp:panel style="text-align:center">
+				<xp:panel style="padding-top:25.0px;padding-bottom:25.0px">
+					<xp:label id="label9" value="ご購入はまだ完了していません。" style="font-weight:bold"
+						styleClass="remarkLarge">
+					</xp:label>
+				</xp:panel>
+				<xp:panel>
+					ご購入手続きはまだ完了していません。内容を確認して、「ご購入を完了する」ボタンを押してください。
+				</xp:panel>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				<xp:table style="width:98%">
+					<xp:tr>
+						<xp:td style="width:10%"></xp:td>
+						<xp:td>
+							<xp:panel id="panelCustomerInfoTitle" style="padding-top:10.0px">
+								<xp:label id="label2" value="お客様情報" styleClass="titleLarge">
+								</xp:label>
+							</xp:panel>
+							<xp:panel id="panelCustomerInfo" style="padding-left:10.0%;padding-right:10.0%">
+								<xp:table style="width:80%">
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label id="label4" value="お名前" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td style="background-color:rgb(192,192,192)">
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label value="姓" id="customerLastName_Label1"
+												for="customerLastName1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:text escape="true" id="computedField1"
+												value="#{sessionScope.customerLastName}">
+											</xp:text>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label value="名" id="customerFirstName_Label1"
+												for="customerFirstName1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:text escape="true" id="computedField2"
+												value="#{sessionScope.customerFirstName}">
+											</xp:text>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label value="セイ" id="customerLastNameYomigana_Label1"
+												for="customerLastNameYomigana1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+
+											<xp:text escape="true" id="computedField3"
+												value="#{sessionScope.customerLastNameYomigana}">
+											</xp:text>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label value="メイ" id="customerFirstNameYomigana_Label1"
+												for="customerFirstNameYomigana1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:text escape="true" id="computedField4"
+												value="#{sessionScope.customerFirstNameYomigana}">
+											</xp:text>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label value="ご住所" id="label5" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td style="background-color:rgb(192,192,192)">
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label value="郵便番号" id="customerZip_Label1" for="customerZip1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:text escape="true" id="computedField5"
+												value="#{sessionScope.customerZip}">
+											</xp:text>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label value="住所" id="customerAddress_Label1"
+												for="customerAddress1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:text escape="true" id="computedField6"
+												value="#{sessionScope.customerAddress}">
+											</xp:text>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label value="電話番号" id="customerPhoneNumber_Label1"
+												for="customerPhoneNumber1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:text escape="true" id="computedField7"
+												value="#{sessionScope.customerPhoneNumber}">
+											</xp:text>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label value="メール" id="customerEmail_Label1" for="customerEmail1">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:text escape="true" id="computedField8"
+												value="#{sessionScope.customerEmail}">
+											</xp:text>
+										</xp:td>
+									</xp:tr>
+								</xp:table>
+							</xp:panel>
+							<xp:panel id="panelPaymentInfoTitle" style="padding-top:10.0px">
+								<xp:label id="label7" styleClass="titleLarge" value="お支払い方法">
+								</xp:label>
+							</xp:panel>
+							<xp:panel id="panelPaymentInfo" style="padding-left:10.0%;padding-right:10.0%">
+								<xp:table style="width:80%">
+									<xp:tr>
+										<xp:td style="width:150.0px;background-color:rgb(192,192,192)">
+											<xp:label id="label10" value="お支払い金額">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:text escape="true" id="computedField9">
+												<xp:this.value><![CDATA[#{javascript:var amount=getTotalAmount();
+return amount + "円";}]]></xp:this.value>
+											</xp:text>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="background-color:rgb(192,192,192)">
+											<xp:label id="label8" value="お支払い方法">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:text escape="true" id="computedField10">
+												<xp:this.value><![CDATA[#{javascript:var paymentType = getPayment().paymentType;
+if ("CreditCard" == paymentType) {
+	return "クレジットカード";
+} else if ("BankTransfer" == paymentType) {
+	return "銀行振込";
+} else {
+	return "代金引換";
+}}]]></xp:this.value>
+											</xp:text>
+											<xp:br></xp:br>
+										</xp:td>
+									</xp:tr>
+								</xp:table>
+								<xp:panel id="panelCreditCardInfo" style="padding-left:5.0%;padding-right:5.0%">
+									<xp:this.rendered><![CDATA[#{javascript:sessionScope.paymentType == "CreditCard"}]]></xp:this.rendered>
+									<xp:table style="width:80%">
+										<xp:tr>
+											<xp:td style="width:120px;background-color:rgb(192,192,192)">
+												<xp:label value="カードの種類" id="label20">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+												<xp:text escape="true" id="computedField11"
+													value="#{javascript:getPayment().cardType}">
+												</xp:text>
+											</xp:td>
+										</xp:tr>
+										<xp:tr>
+											<xp:td style="width:120px;background-color:rgb(192,192,192)">
+												<xp:label value="カード名義人" id="label21">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+												<xp:text escape="true" id="computedField12"
+													value="#{javascript:getPayment().cardHolderName}">
+												</xp:text>
+											</xp:td>
+										</xp:tr>
+										<xp:tr>
+											<xp:td style="width:120px;background-color:rgb(192,192,192)">
+												<xp:label value="カード番号" id="label22">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+
+												<xp:text escape="true" id="computedField13">
+													<xp:this.value><![CDATA[#{javascript:var cardNumber = getPayment().cardNumber;
+if (null != cardNumber) {
+	var len = cardNumber.length();
+	var maskedNumber = "";
+	for (i=0; i<len-4; i++) {
+		maskedNumber += "X";
+	}
+	for (i=len-4; i<len; i++) {
+		maskedNumber += cardNumber.charAt(i);
+	}
+	return maskedNumber;
+} else {
+	return "カード番号が指定されていません";
+}
+}]]></xp:this.value>
+												</xp:text>
+											</xp:td>
+										</xp:tr>
+									</xp:table>
+								</xp:panel>
+								<xp:panel id="panelOnDeliveryInfo">
+									<xp:this.rendered><![CDATA[#{javascript:sessionScope.paymentType == "OnDelivery"}]]></xp:this.rendered>
+									<xp:table style="width:80%">
+										<xp:tr>
+											<xp:td style="width:150px;background-color:rgb(192,192,192)">
+												<xp:label value="取扱手数料" id="label23">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+												<xp:text escape="true" id="computedField14">
+
+													<xp:this.value><![CDATA[#{javascript:var charge = getPayment().handlingCharge;
+return charge + "円";}]]></xp:this.value>
+												</xp:text>
+											</xp:td>
+										</xp:tr>
+									</xp:table>
+								</xp:panel>
+							</xp:panel>
+							<xp:panel id="panelOrderInfoTitle" style="padding-top:10.0px">
+								<xp:label value="ご注文内容" id="label3" styleClass="titleLarge">
+								</xp:label>
+							</xp:panel>
+							<xp:panel id="panelOrderInfo">
+								<xc:cOrderList bShowTotal="true"
+									bShowChangeButton="false">
+								</xc:cOrderList>
+							</xp:panel>
+							<xp:panel id="panelCheckoutButton"
+								style="text-align:center;padding-top:30.0px">
+
+								<xp:button value="ご購入を完了する" id="button2"
+									style="height:30px;width:250px">
+									<xp:eventHandler event="onclick"
+										submit="true" refreshMode="complete">
+										<xp:this.action><![CDATA[#{javascript:
+// 注文番号を取得
+sessionScope.orderId = @Unique();
+
+// 購入商品の一覧取得
+var list = getAllOrder();
+
+// 購入商品があれば、処理を実施
+if ((null != list) && (list.length > 0)) {
+	
+	// ショッピングカートアプリケーションのデータベースを取得
+	var db:NotesDatabase = session.getCurrentDatabase();
+
+	// 購入サマリ文書を作成
+	var summary:NotesDocument = db.createDocument();
+	summary.replaceItemValue("Form","OrderSummary");
+	
+	// 購入サマリ情報を設定
+	summary.replaceItemValue("OrderID", sessionScope.orderId);
+	summary.replaceItemValue("CustomerLastName", sessionScope.customerLastName);
+	summary.replaceItemValue("CustomerFirstName", sessionScope.customerFirstName);
+	summary.replaceItemValue("CustomerLastNameYomigana", sessionScope.customerLastNameYomigana);
+	summary.replaceItemValue("CustomerFirstNameYomigana", sessionScope.customerFirstNameYomigana);
+	summary.replaceItemValue("CustomerZip", sessionScope.customerZip);
+	summary.replaceItemValue("CustomerAddress", sessionScope.customerAddress);
+	summary.replaceItemValue("CustomerPhoneNumber", sessionScope.customerPhoneNumber);
+	summary.replaceItemValue("CustomerEmail", sessionScope.customerEmail);
+	summary.replaceItemValue("TotalAmount", getTotalAmount());
+	
+	// 支払い情報を設定
+	var payment = getPayment();
+	summary.replaceItemValue("PaymentType", payment.paymentType);
+	summary.replaceItemValue("HandlingCharge", payment.handlingCharge);
+	summary.replaceItemValue("CardType", payment.cardType);
+	summary.replaceItemValue("CardHolderName", payment.cardHolderName);
+	summary.replaceItemValue("CardNumber", payment.cardNumber);
+	summary.replaceItemValue("CardExpiration", payment.cardExpiration);
+		
+	// 購入サマリ文書を保存
+	var ret = summary.save(true,true);
+	
+	print ("OrderSummary が作成されました：OrderID=" + sessionScope.orderId);
+	
+	// 購入商品ごとに OrderDetail フォームで返答文書を作成
+	for(var i=0; i<list.length; i++) {
+	
+		var productId = list[i].productId; // 商品コード
+		var productName = list[i].productName; // 商品名
+		var productPrice = list[i].productPrice; // 商品価格
+		var orderCount = list[i].orderCount; // 購入点数
+
+		// 購入品目詳細文書を作成
+		var detail:NotesDocument = db.createDocument();
+		detail.replaceItemValue("Form", "OrderDetail");
+		detail.replaceItemValue("OrderID", sessionScope.orderId);
+		detail.replaceItemValue("ProductID", productId);
+		detail.replaceItemValue("ProductName", productName);
+		detail.replaceItemValue("ProductPrice", productPrice);
+		detail.replaceItemValue("OrderCount", orderCount);
+
+		// 作成した購入品目詳細文書をサマリの子文書にする
+		detail.makeResponse(summary);
+
+		// 購入品目詳細文書を保存
+		var ret = detail.save(true,true);
+		
+		print ("DrderDetail が作成されました：注文番号=" + sessionScope.orderId + 
+											", 商品コード=" + productId +
+											", 商品名=" + productName +
+											", 商品価格=" + productPrice +
+											", 購入点数=" + orderCount);
+	}
+	
+	// 支払情報を空にする
+	clearPayment();
+	
+	// カーとの中身を空にする
+	clearCart();
+	
+	// 購入完了ページを開く
+	context.redirectToPage("orderCompleted");
+	
+} else {
+	print ("カートに商品がありません。");
+}}]]></xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+							</xp:panel>
+							
+						</xp:td>
+						<xp:td style="width:10%"></xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>

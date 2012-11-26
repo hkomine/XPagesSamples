@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="ロータスショッピング - " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xsp/core xsdxp://localhost/xsp~core.xsd">
+	<xp:this.data>
+		<xp:dominoView var="ordersView" viewName="OrdersView"
+			keys="#{javascript:sessionScope.searchOrderId}">
+		</xp:dominoView>
+	</xp:this.data>
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label id="label1" styleClass="contentTitleText" value="ご注文履歴">
+				</xp:label>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				<xp:table style="width:100%">
+					<xp:tr>
+						<xp:td style="width:10%"></xp:td>
+						<xp:td>
+							<xp:panel style="padding-top:10.0px;padding-bottom:10.0px">
+								<xp:label value="検索しているご注文番号：" id="label2" styleClass="textLarge">
+								</xp:label>
+								<xp:text escape="true" id="computedField1" styleClass="titleLarge"
+									value="#{sessionScope.searchOrderId}">
+								</xp:text>
+								<xp:br></xp:br>
+							</xp:panel>
+							<xp:panel>
+								<xp:viewPanel value="#{ordersView}" id="viewPanel1"
+									viewStyle="width:100%" pageName="/orderDetail.xsp">
+									<xp:this.facets>
+										<xp:pager partialRefresh="true" layout="Previous Group Next"
+											xp:key="headerPager" id="pager1">
+										</xp:pager>
+									</xp:this.facets>
+									<xp:viewColumn columnName="OrderID" id="viewColumn1"
+										displayAs="link" openDocAsReadonly="true">
+										<xp:this.facets>
+											<xp:viewColumnHeader value="Order i d"
+												xp:key="header" id="viewColumnHeader1" style="width:30%">
+											</xp:viewColumnHeader>
+										</xp:this.facets>
+									</xp:viewColumn>
+									<xp:viewColumn columnName="$5" id="viewColumn2">
+										<xp:this.facets>
+											<xp:viewColumnHeader value="お客様名" xp:key="header"
+												id="viewColumnHeader2">
+											</xp:viewColumnHeader>
+										</xp:this.facets>
+									</xp:viewColumn>
+									<xp:viewColumn columnName="$7" id="viewColumn3">
+										<xp:this.facets>
+											<xp:viewColumnHeader value="ご注文日" xp:key="header"
+												id="viewColumnHeader3" style="width:30%">
+											</xp:viewColumnHeader>
+										</xp:this.facets>
+									</xp:viewColumn>
+								</xp:viewPanel>
+							</xp:panel>
+						</xp:td>
+						<xp:td style="width:10%"></xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:panel>
+		</xp:panel>
+		<xc:cFooter></xc:cFooter>
+	</xp:panel>
+</xp:view>

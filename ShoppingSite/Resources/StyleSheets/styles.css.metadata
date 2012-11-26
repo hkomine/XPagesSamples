@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="3.0" replicaid="492579C6002A0AF2" version="8.5" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="1a2" sequence="5" unid="8F20C929920CE60C492579C600275C3C">
+<created><datetime>20120319T160955,16+09</datetime></created>
+<modified><datetime>20121126T172640,24+09</datetime></modified>
+<revised><datetime>20121126T172640,23+09</datetime></revised>
+<lastaccessed><datetime>20121126T172640,24+09</datetime></lastaccessed>
+<addedtofile><datetime>20120320T002509,13+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Admin/O=Lotus</name><name>CN=Hiroaki Komine/OU=Japan/O=IBM</name><name>CN=Admin/O=Lotus</name><name>CN=admin/O=LotusLab</name></updatedby>
+<wassignedby><name>CN=admin/O=LotusLab</name></wassignedby>
+<item name="$TITLE"><text>styles.css</text></item>
+<item name="$Flags"><text>34C=Q</text></item>
+<item name="$FlagsExt"><text>D</text></item>
+
+<item name="$FileModDT" sign="true"><datetime>20120318T184110,00+09</datetime></item>
+
+<item name="$FileNames" sign="true"><text>styles.css</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$MimeCharSet"><text>Shift_JIS</text></item></note>

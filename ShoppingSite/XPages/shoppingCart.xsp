@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="ロータスショッピング - ショッピングカード">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+		<xp:script src="/shopping cart.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label id="label1" value="ショッピングカート" styleClass="contentTitleText">
+				</xp:label>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				<xp:table style="width:98%">
+					<xp:tr>
+						<xp:td>
+							<xc:cOrderList bShowTotal="false"
+								bShowChangeButton="true">
+							</xc:cOrderList>
+						</xp:td>
+						<xp:td style="width:200px" valign="top">
+							<xp:panel style="text-align:center">
+								<xp:button value="レジへ進む" id="button1" style="width:150px;height:30px">
+
+									<xp:this.disabled><![CDATA[#{javascript:
+var list:Arry = getAllOrder();
+if (null == list) {
+	return true;
+} else if (0 == list.length) {
+	return true;
+} else {
+	return false;
+}}]]></xp:this.disabled><xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete">
+										<xp:this.action>
+											<xp:openPage name="/checkoutInput.xsp">
+											</xp:openPage>
+										</xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+								<xp:br></xp:br>
+								<xp:panel styleClass="messageBox">
+									<xp:label id="label6" value="合計金額：" styleClass="textLarge">
+									</xp:label>
+									<xp:text escape="true" id="computedField5" styleClass="remarkLarge"
+										style="color:rgb(255,0,0)" value="#{javascript:getTotalAmount()}">
+
+										<xp:this.converter>
+											<xp:convertNumber pattern="#,##0">
+											</xp:convertNumber>
+										</xp:this.converter>
+									</xp:text>
+									<xp:label id="label2" styleClass="remarkLarge" value="円">
+									</xp:label>
+								</xp:panel>
+							</xp:panel>
+						</xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>

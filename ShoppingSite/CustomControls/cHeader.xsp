@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:panel styleClass="header">
+		<xp:panel styleClass="headerInner">
+			<xp:label value="ロータスショッピング" id="labelHeaderTitle"
+				styleClass="headerInnerTitle"></xp:label>
+		</xp:panel>
+	</xp:panel>
+	<xp:panel>
+		<xp:table style="width:100%">
+			<xp:tr>
+				<xp:td style="width:50%">
+					<xp:panel>
+						<xp:link escape="true" id="link1" text="商品カタログを開く"
+							styleClass="naviButton" value="/productCatalog.xsp"></xp:link>
+					</xp:panel>
+				</xp:td>
+				<xp:td style="width:50%">
+					<xp:panel style="text-align:right">
+						<xp:link escape="true" text="ショッピングカートを確認する" id="link2"
+							styleClass="naviButton" value="/shoppingCart.xsp"></xp:link>
+					</xp:panel>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:panel>
+</xp:view>

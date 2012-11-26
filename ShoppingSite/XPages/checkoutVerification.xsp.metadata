@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="3.0" replicaid="492579C6002A0AF2" version="8.5" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="212" sequence="158" unid="EE8EDFF32A9D5396492579D80005B136">
+<created><datetime>20120406T100210,46+09</datetime></created>
+<modified><datetime>20121126T172639,60+09</datetime></modified>
+<revised><datetime>20121126T172639,59+09</datetime></revised>
+<lastaccessed><datetime>20121126T172639,60+09</datetime></lastaccessed>
+<addedtofile><datetime>20120406T100210,47+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Hiroaki Komine/OU=Japan/O=IBM</name><name>CN=Admin/O=Lotus</name><name>CN=admin/O=LotusLab</name></updatedby>
+<wassignedby><name>CN=admin/O=LotusLab</name></wassignedby>
+<item name="$Flags"><text>gC~4K</text></item>
+<item name="$TITLE" sign="true"><text>checkoutVerification.xsp</text></item>
+
+<item name="$DesignerVersion"><text>8.5</text></item>
+
+
+
+
+<item name="$FileNames" sign="true"><text>checkoutVerification.xsp</text></item>
+
+
+</note>

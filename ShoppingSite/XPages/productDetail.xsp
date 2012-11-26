@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.data>
+		<xp:dominoDocument var="productDocument" formName="Product"
+			action="openDocument">
+		</xp:dominoDocument>
+	</xp:this.data>
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+		<xp:script src="/shopping cart.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:this.pageTitle><![CDATA[#{javascript:"ロータスショッピング - " + productDocument.getItemValueString("ProductName")}]]></xp:this.pageTitle>
+	
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:text escape="true" id="computedField1" value="#{productDocument.ProductName}"
+					styleClass="contentTitleText">
+				</xp:text>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				<xp:table style="width:100%">
+					<xp:tr>
+						<xp:td>
+							<xp:panel>
+								<xp:table>
+									<xp:tr>
+										<xp:td style="width:100px">
+											<xp:label value="商品番号"
+												id="productID_Label1" for="productID1"
+												styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{productDocument.ProductID}"
+												id="productID">
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:100px">
+											<xp:label value="商品名" id="productName_Label1" for="productName1"
+												styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{productDocument.ProductName}"
+												id="productName">
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:100px">
+											<xp:label value="カテゴリ" id="productCategory_Label1"
+												for="productCategory1" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{productDocument.ProductCategory}"
+												id="productCategory">
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:100px">
+											<xp:label value="価格" id="productPrice_Label1" for="productPrice1"
+												styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputText value="#{productDocument.ProductPrice}"
+												id="productPrice">
+												<xp:this.converter>
+													<xp:convertNumber></xp:convertNumber>
+												</xp:this.converter>
+											</xp:inputText>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td style="width:100px"></xp:td>
+										<xp:td></xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td valign="top" style="width:100px">
+											<xp:label value="商品の詳細" id="prodctDetail_Label1"
+												for="prodctDetail1" styleClass="titleNormal">
+											</xp:label>
+										</xp:td>
+										<xp:td>
+											<xp:inputRichText value="#{productDocument.ProdctDetail}"
+												id="prodctDetail">
+											</xp:inputRichText>
+										</xp:td>
+									</xp:tr>
+								</xp:table>
+							</xp:panel>
+						</xp:td>
+						<xp:td style="width:200px" valign="top">
+							<xp:panel id="panelAddCart">
+								<xp:table>
+									<xp:tr>
+										<xp:td>
+											<xp:label value="購入点数：   " id="label1" styleClass="textLarge">
+											</xp:label>
+											<xp:comboBox
+												style="width:40px" id="orderCount" styleClass="textLarge">
+												<xp:this.defaultValue><![CDATA[#{javascript:var productId = getComponent("productID").value;
+var count:Number = getOrder(productId);
+return String(count);}]]></xp:this.defaultValue>
+												<xp:selectItem
+													itemLabel="0" itemValue="0">
+												</xp:selectItem>
+												<xp:selectItem
+													itemLabel="1" itemValue="1">
+												</xp:selectItem>
+												<xp:selectItem
+													itemLabel="2" itemValue="2">
+												</xp:selectItem>
+												<xp:selectItem
+													itemLabel="3" itemValue="3">
+												</xp:selectItem>
+												<xp:selectItem
+													itemLabel="4" itemValue="4">
+												</xp:selectItem>
+												<xp:selectItem
+													itemLabel="5" itemValue="5">
+												</xp:selectItem>
+											</xp:comboBox>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td>
+											<xp:button id="buttonAddCart" value="ショッピングカートに入れる" style="width:200px;height:30px">
+												<xp:eventHandler
+													event="onclick" submit="true" refreshMode="partial"
+													refreshId="panelAddCart">
+													<xp:this.action><![CDATA[#{javascript:
+var noteId = currentDocument.getNoteID();
+var productId = getComponent("productID").value;
+var productName = getComponent("productName").value;
+var productPrice = Number(getComponent("productPrice").value);
+var orderCount = Number(getComponent("orderCount").value);
+
+updateOrder(noteId, productId, productName, productPrice, orderCount);
+
+var message;
+// 情報メッセージを生成
+if (orderCount > 0) {
+	message = "商品番号：" + productId + "の" + 
+			"「" + productName + "（" + productPrice + "円）」が" + 
+			"ショッピングカートに" + orderCount + "個入りました。";
+} else {
+	message = "商品番号：" + productId + "の" + 
+			"「" + productName + "（" + productPrice + "円）」は" + 
+			"ショッピングカートから削除されました。";
+}
+
+// Domino コンソールへ表示
+print(message);
+
+// カートに追加された商品情報を画面に表示
+getComponent("outputAddCart").value = message;
+
+dumpCart();
+}]]></xp:this.action>
+												</xp:eventHandler>
+											</xp:button>
+										</xp:td>
+									</xp:tr>
+									<xp:tr>
+										<xp:td>
+											<xp:panel styleClass="messageBox">
+												<xp:label id="outputAddCart" value=" ">
+												</xp:label>
+											</xp:panel>
+										</xp:td>
+									</xp:tr>
+								</xp:table>
+							</xp:panel>
+						</xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>

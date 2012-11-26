@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE note SYSTEM 'xmlschemas/domino_8_5_3.dtd'>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='8.5' maintenanceversion='3.0'
+ replicaid='492579C6002A0AF2'>
+<noteinfo noteid='256' unid='05A371FF220FDA81492579DC004D07E3' sequence='5'>
+<created><datetime>20120410T230122,91+09</datetime></created>
+<modified><datetime>20121126T172640,00+09</datetime></modified>
+<revised><datetime>20121126T172639,99+09</datetime></revised>
+<lastaccessed><datetime>20121126T172640,00+09</datetime></lastaccessed>
+<addedtofile><datetime>20120410T230124,10+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Admin/O=Lotus</name><name>CN=admin/O=LotusLab</name></updatedby>
+<wassignedby><name>CN=admin/O=LotusLab</name></wassignedby>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$HTMLCode' sign='true'>
+<rawitemdata type='1'>
+X/8QAAIADwAHAAAAAAAAAA==
+</rawitemdata></item>
+<item name='$TITLE'><text>PaymentInfo</text></item>
+<item name='$Info' sign='true'>
+<rawitemdata type='1'>
+hhgBAIgAAAAAgAAAAQABAP///wAQAAAA
+</rawitemdata></item>
+<item name='$SubForms'><text>PaymentInfo</text></item>
+<item name='$SubForm_RepIDs' sign='true'><text>0000000000000000</text></item>
+<item name='$Flags'><text/></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>PaymentInfo</text></item>
+<item name='PaymentType' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='CardType' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='CardHolderName' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='CardNumber' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='CardExpiration' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='HandlingCharge' summary='false'><number>0</number></item>
+<item name='$Fields'><textlist><text>HandlingCharge</text><text>CardExpiration</text><text
+>CardNumber</text><text>CardHolderName</text><text>CardType</text><text>PaymentType</text></textlist></item>
+<item name='$Body' sign='true'>
+<rawitemdata type='1'>
+gQKC/1oAAQAAAAAAAAAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAABAAAAAJSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAEAhf8IAAEAAAqBAoMEAQCF/wgA
+AQAACt0GAACt/3H/LQAAAAAAAwAYAAsAAAAAAAAAAAAAAAAAAAAAAAAAAABQYXltZW50SW5mbwCt
+/xgADgAIAAAADABQYXltZW50SW5mbwCuAt4GAACuAIX/CAABAAAKgQKC/1oAAgAAAAAAAAAAAKAF
+AACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAABSEoAUA
+AKAFAAAAAGQAAQAAAAQAAACDBAIAhf8IAAEAAAo=
+</rawitemdata></item></note>
+

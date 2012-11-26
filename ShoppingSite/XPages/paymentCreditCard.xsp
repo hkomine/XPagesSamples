@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="ロータスショッピング - クレジットカード情報の入力">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+		<xp:script src="/payment info.jss" clientSide="false"></xp:script>
+		<xp:script src="/creditcard validator.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label value="クレジットカード情報の入力" id="label1" styleClass="contentTitleText">
+				</xp:label>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				<xp:table style="width:98%">
+					<xp:tr>
+						<xp:td style="width:10%"></xp:td>
+						<xp:td>
+							<xp:panel id="panelCardInfoTitle" style="padding-top:10.0px;padding-bottom:10.0px">
+								<xp:label value="クレジットカードによるお支払いが選択されました。" id="label10"
+									styleClass="titleLarge">
+								</xp:label>
+							</xp:panel>
+							<xp:panel id="panelCardInfo">
+								<xp:panel id="panelCardDataEdit" rendered="#{javascript:!isCreditCardValidated()}">
+									<xp:label value="クレジットカード情報を入力して、「クレジットカード情報の送信」ボタンを押してください。"
+										id="label3">
+									</xp:label>
+									<xp:table style="width:100%">
+										<xp:tr>
+											<xp:td style="width:150px;background-color:rgb(192,192,192)">
+												<xp:label value="カードの種類" id="label8">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+												<xp:comboBox
+													id="comboCardType" style="width:80px"
+													defaultValue="BEST">
+													<xp:selectItem
+														itemLabel="BEST" itemValue="BEST" id="selectItem1">
+													</xp:selectItem>
+													<xp:selectItem
+														itemLabel="Nicer" itemValue="Nicer" id="selectItem2">
+													</xp:selectItem>
+													<xp:selectItem
+														itemLabel="GOLD" itemValue="GOLD" id="selectItem3">
+													</xp:selectItem>
+
+													<xp:eventHandler
+														event="onchange" submit="true" refreshMode="partial"
+														refreshId="computedCardRemark" disableValidators="true">
+													</xp:eventHandler>
+
+												</xp:comboBox>
+											</xp:td>
+										</xp:tr>
+										<xp:tr>
+											<xp:td style="width:150px;background-color:rgb(192,192,192)">
+												<xp:label value="カード名義人" id="label2">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+												<xp:inputText
+													id="inputCardHolderName" style="width:200px"
+													required="true">
+												<xp:this.validators>
+													<xp:validateRequired
+														message="カード名義人を入力してください。">
+													</xp:validateRequired>
+												</xp:this.validators></xp:inputText>
+											</xp:td>
+										</xp:tr>
+										<xp:tr>
+											<xp:td style="width:150px;background-color:rgb(192,192,192)">
+												<xp:label value="カード番号" id="label9">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+												<xp:inputText
+													id="inputCardNumber" style="width:150px" required="true">
+													<xp:this.validators>
+														<xp:validateRequired
+															message="カード番号を入力してください。">
+														</xp:validateRequired>
+														
+													</xp:this.validators>
+												</xp:inputText>
+												<xp:br></xp:br>
+												<xp:text escape="true"
+													id="computedCardRemark">
+												<xp:this.value><![CDATA[#{javascript:var comboCardType:com.ibm.xsp.component.xp.XspSelectOneMenu = getComponent("comboCardType");
+var cardType:String = comboCardType.getValue();
+var remark = "※ BEST および Nicer カードには10桁、GOLD カードでは8桁のカード番号を入力してください。";
+if (null != cardType) {
+	if ("BEST" == cardType) {
+		remark = "※ BEST  カードには10桁のカード番号を入力してください。";
+	} else if ("Nicer" == cardType) {
+		remark = "※ Nicer カードには10桁のカード番号を入力してください。";
+	} else if ("GOLD" == cardType) {
+		remark = "※ GOLD カードには8桁のカード番号を入力してください。";
+	}
+}
+return remark;}]]></xp:this.value></xp:text>
+												</xp:td>
+										</xp:tr>
+										<xp:tr>
+											<xp:td style="width:150px;background-color:rgb(192,192,192)">
+												<xp:label id="label4" value="有効期限（月年の4桁）">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+												<xp:inputText
+													id="inputCardExpiration" required="true"
+													style="width:60px">
+													<xp:this.validators>
+														<xp:validateLength
+															minimum="4" maximum="4"
+															message="カード番号は4桁（月年）で入力してください。">
+														</xp:validateLength>
+
+														<xp:validateRequired
+															message="有効期限を入力してください。">
+														</xp:validateRequired>
+													</xp:this.validators>
+												</xp:inputText>
+											</xp:td>
+										</xp:tr>
+									</xp:table>
+								</xp:panel>
+								<xp:panel id="panelCardDataDisplay" rendered="#{javascript:isCreditCardValidated()}">
+									<xp:table style="width:100%">
+										<xp:tr>
+											<xp:td style="width:150px;background-color:rgb(192,192,192)">
+												<xp:label value="カードの種類" id="label5">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+												<xp:text escape="true" id="computedField2"
+													value="#{javascript:getPayment().cardType}">
+												</xp:text>
+											</xp:td>
+										</xp:tr>
+										<xp:tr>
+											<xp:td style="width:150px;background-color:rgb(192,192,192)">
+												<xp:label value="カード名義人" id="label6">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+
+												<xp:text escape="true" id="computedField3"
+													value="#{javascript:getPayment().cardHolderName}">
+												</xp:text>
+											</xp:td>
+										</xp:tr>
+										<xp:tr>
+											<xp:td style="width:150px;background-color:rgb(192,192,192)">
+												<xp:label value="カード番号" id="label7">
+												</xp:label>
+											</xp:td>
+											<xp:td>
+
+												<xp:text escape="true" id="computedField4">
+													<xp:this.value><![CDATA[#{javascript:var cardNumber = getPayment().cardNumber;
+if (null != cardNumber) {
+	var len = cardNumber.length();
+	var maskedNumber = "";
+	for (i=0; i<len-4; i++) {
+		maskedNumber += "X";
+	}
+	for (i=len-4; i<len; i++) {
+		maskedNumber += cardNumber.charAt(i);
+	}
+	return maskedNumber;
+} else {
+	return "カード番号が指定されていません"
+}
+}]]></xp:this.value>
+												</xp:text>
+											</xp:td>
+										</xp:tr>
+									</xp:table>
+								</xp:panel>
+								<xp:panel id="panelCardValidationResult">
+									<xp:text escape="true" id="computedField1"
+										value="#{javascript:return viewScope.cardValidatorMessage;}">
+										<xp:this.styleClass><![CDATA[#{javascript:if (isCreditCardValidated()) {
+	return "textLarge";
+} else {
+	return "remarkLarge";
+}}]]></xp:this.styleClass>
+									</xp:text>
+								</xp:panel>
+								<xp:panel style="text-align:center;padding-top:30.0px"
+									id="panelValidateButon">
+									<xp:button id="button2" value="クレジットカード情報の送信"
+										disabled="#{javascript:isCreditCardValidated()}" style="height:30px">
+										<xp:eventHandler event="onclick"
+											submit="true" refreshMode="partial"
+											refreshId="panelCardInfo">
+											<xp:this.action><![CDATA[#{javascript:
+var cardType = getComponent("comboCardType").value;
+var cardHolderName = getComponent("inputCardHolderName").value;
+var cardNumber = getComponent("inputCardNumber").value;
+var cardExpiration = getComponent("inputCardExpiration").value;
+
+var result = validateCardInfo(cardType, cardHolderName, cardNumber, cardExpiration);
+viewScope.cardValidatorMessage = getReasonMessage(result);
+
+if (0 == result) {
+	setCreditCard(cardType, cardHolderName, cardNumber, cardExpiration);
+}
+	}]]></xp:this.action>
+										</xp:eventHandler>
+									</xp:button>
+								</xp:panel>
+								<xp:panel id="panelNextPageButton" style="text-align:center">
+									<xp:button id="button1"
+										style="height:30px;width:100px;margin-top:30.0px" value="次へ"
+										disabled="#{javascript:!isCreditCardValidated()}">
+										<xp:eventHandler event="onclick" submit="true"
+											refreshMode="complete">
+											<xp:this.action>
+												<xp:openPage name="/checkoutVerification.xsp">
+												</xp:openPage>
+											</xp:this.action>
+										</xp:eventHandler>
+									</xp:button>
+								</xp:panel>
+							</xp:panel>
+						</xp:td>
+						<xp:td style="width:10%"></xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>

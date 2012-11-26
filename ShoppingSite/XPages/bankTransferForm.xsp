@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	style="background-image:url(bankTransferForm.jpg);background-repeat:no-repeat"
+	pageTitle="ロータスショッピング - 振込依頼書">
+
+	<xp:this.resources>
+		<xp:script src="/utilities.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:table style="margin-top:40.0px;margin-left:30.0px" border="0">
+		<xp:tr>
+			<xp:td style="width:25px;height:65px"></xp:td>
+			<xp:td style="height:42px;width:360px"></xp:td>
+			<xp:td style="width:60px"></xp:td>
+			<xp:td style="width:280px"></xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="height:63px"></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+			<xp:td>
+				<xp:table style="width:100.0%">
+					<xp:tr>
+						<xp:td style="width:23px">
+							<xp:label style="font-size:12pt" id="d9">
+								<xp:this.value><![CDATA[#{javascript:
+var amount=param.get("amount");
+return getDigitAt(9,amount);
+							}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+						<xp:td style="width:23px">
+							<xp:label id="d8" style="font-size:12pt">
+								<xp:this.value><![CDATA[#{javascript:
+var amount=param.get("amount");
+return getDigitAt(8,amount);
+							}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+						<xp:td style="width:23px">
+							<xp:label id="d7" style="font-size:12pt">
+								<xp:this.value><![CDATA[#{javascript:
+var amount=param.get("amount");
+return getDigitAt(7,amount);
+							}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+						<xp:td style="width:23px">
+							<xp:label id="d6" style="font-size:12pt">
+								<xp:this.value><![CDATA[#{javascript:
+var amount=param.get("amount");
+return getDigitAt(6,amount);
+							}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+						<xp:td style="width:23px">
+							<xp:label id="d5" style="font-size:12pt">
+								<xp:this.value><![CDATA[#{javascript:
+var amount=param.get("amount");
+return getDigitAt(5,amount);
+							}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+						<xp:td style="width:23px">
+							<xp:label style="font-size:12pt" id="d4">
+								<xp:this.value><![CDATA[#{javascript:
+var amount=param.get("amount");
+return getDigitAt(4,amount);
+							}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+						<xp:td style="width:23px">
+							<xp:label id="d3" style="font-size:12pt">
+								<xp:this.value><![CDATA[#{javascript:
+var amount=param.get("amount");
+return getDigitAt(3,amount);
+							}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+						<xp:td style="width:23px">
+							<xp:label id="d2" style="font-size:12pt">
+								<xp:this.value><![CDATA[#{javascript:
+var amount=param.get("amount");
+return getDigitAt(2,amount);
+							}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+						<xp:td style="width:23px">
+							<xp:label id="d1" style="font-size:12pt">
+								<xp:this.value><![CDATA[#{javascript:
+var amount=param.get("amount");
+return getDigitAt(1,amount);
+							}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="height:62px"></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="height:64px"></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="height:65px"></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="height:20px"></xp:td>
+			<xp:td style="text-align:center">
+				<xp:text escape="true" id="computedField1"
+					style="font-size:9pt">
+
+					<xp:this.value><![CDATA[#{javascript:return sessionScope.customerLastNameYomigana + " " + sessionScope.customerFirstNameYomigana;}]]></xp:this.value>
+				</xp:text>
+			</xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="height:40px"></xp:td>
+			<xp:td style="text-align:center">
+				<xp:text escape="true" id="computedField2"
+					style="font-size:14pt">
+
+					<xp:this.value><![CDATA[#{javascript:return sessionScope.customerLastName + " " + sessionScope.customerFirstName;}]]></xp:this.value>
+				</xp:text>
+			</xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="height:20px"></xp:td>
+			<xp:td style="padding-left:200.0px">
+				<xp:text escape="true" id="computedField3"
+					style="font-size:9pt"
+					value="#{javascript:return sessionScope.customerPhoneNumber;}">
+
+				</xp:text>
+			</xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="height:40px"></xp:td>
+			<xp:td style="padding-left:10.0px">
+				<xp:text escape="true" id="computedField4"
+					style="font-size:10pt"
+					value="#{javascript:return sessionScope.customerAddress;}">
+
+				</xp:text>
+			</xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+		</xp:tr>
+	</xp:table>
+	<xp:br></xp:br>
+	<xp:panel
+		style="color:rgb(255,0,0);margin-left:40.0px;width:700px">
+		この振込用紙を使用して、最寄りの金融機関、コンビニエンスストア、アイ・ビー・エム銀行指定ショップでお振り込みができます。
+		<xp:br></xp:br>
+		振込時に発行される受領書が、ロータスショッピング株式会社でのご購入の領収書となります。
+		<xp:br></xp:br>
+		ロータスショッピング株式会社ではお客様の振込を確認した後で、商品を発送します。
+		<xp:br></xp:br>
+	</xp:panel>
+	<xp:table
+		style="width:700px;margin-left:40.0px;margin-top:50.0px">
+		<xp:tr>
+			<xp:td style="text-align:center;width:50%">
+				<xp:button id="button1" value="印刷する">
+					<xp:eventHandler event="onclick" submit="false">
+						<xp:this.script><![CDATA[window.print();]]></xp:this.script>
+					</xp:eventHandler>
+				</xp:button>
+			</xp:td>
+			<xp:td style="text-align:center;width:50%">
+				<xp:button value="この画面を閉じる" id="button2">
+					<xp:eventHandler event="onclick" submit="false">
+						<xp:this.script><![CDATA[window.close();]]></xp:this.script>
+					</xp:eventHandler>
+				</xp:button>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
+	<xp:br></xp:br>
+</xp:view>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="ロータスショッピング - 代金引換でのお支払いについて">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+		<xp:script src="/payment info.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:panel id="frame" styleClass="frame">
+		<xc:cHeader></xc:cHeader>
+		<xp:panel id="main" styleClass="main">
+			<xp:panel id="contentTitle" styleClass="contentTitle">
+				<xp:label value="代金引換での支払いについて" id="label1" styleClass="contentTitleText">
+				</xp:label>
+			</xp:panel>
+			<xp:panel id="content" styleClass="content">
+				<xp:table style="width:98%">
+					<xp:tr>
+						<xp:td style="width:10%"></xp:td>
+						<xp:td>
+							<xp:panel id="panelOnDeliveryInfoTitle" style="padding-top:10.0px;padding-bottom:10.0px"
+								styleClass="titleLarge">
+
+								<xp:label value="代金引換によるお支払いが選択されました。" id="label2">
+								</xp:label>
+							</xp:panel>
+							<xp:panel id="panelOnDeliveryInfo">
+								代金引き換えによるお支払いが選択されました。代金引換には
+								<xp:label value="300円" id="label3" styleClass="remarkLarge">
+								</xp:label>
+								の取扱手数料が加算されます。
+								<xp:br></xp:br>
+								代金のご請求は商品をお届けする宅配便業者によって行われます。お客様のご不在などの場合には商品を持ち帰らせていただく場合があります。
+								<xp:br></xp:br>
+								代金引換での購入を続けますか？よろしければ以下のチェックボックスを選択してください。
+								<xp:br></xp:br>
+								<xp:panel style="text-align:center">
+									<xp:checkBox text="代金引換を選択して購入を進める" id="checkBoxContinue">
+										<xp:eventHandler event="onchange" submit="true"
+											refreshMode="partial" refreshId="panelCheckoutButton">
+										</xp:eventHandler>
+									</xp:checkBox>
+								</xp:panel>
+							</xp:panel>
+							<xp:panel id="panelCheckoutButton" style="text-align:center">
+								<xp:button id="button1"
+									style="height:30px;width:100px;margin-top:30.0px" value="次へ">
+									<xp:this.disabled><![CDATA[#{javascript:var checkBoxContinue:com.ibm.xsp.component.xp.XspInputCheckbox = getComponent("checkBoxContinue");
+return !checkBoxContinue.isChecked();}]]></xp:this.disabled>
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete">
+										<xp:this.action>
+
+											<xp:actionGroup>
+												<xp:executeScript script="#{javascript:setOnDelivery(300);}">
+												</xp:executeScript>
+												<xp:openPage name="/checkoutVerification.xsp">
+												</xp:openPage>
+											</xp:actionGroup>
+										</xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+							</xp:panel>
+						</xp:td>
+						<xp:td style="width:10%"></xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:panel>
+		</xp:panel>
+	<xc:cFooter></xc:cFooter></xp:panel>
+	</xp:view>
